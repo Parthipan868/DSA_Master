@@ -1,5 +1,5 @@
 .faq-section {
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   background-color: #1a1f2e;
 }
 
@@ -8,13 +8,13 @@
   margin: 0 auto;
   background-color: #2d3548;
   border-radius: 20px;
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem;
 }
 
 .faq-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #ffffff;
 }
 
@@ -54,9 +54,9 @@
 }
 
 .faq-answer {
-  padding: 0 2rem 1.5rem 2rem;
+  padding: 0 1.5rem 1.2rem 1.5rem;
   color: #a8b2d1;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   animation: slideDown 0.3s ease;
 }

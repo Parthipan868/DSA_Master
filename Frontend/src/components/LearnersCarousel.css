@@ -1,20 +1,20 @@
 .learners-section {
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   background-color: #1a1f2e;
 }
 
 .learners-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: #2d3548;
   border-radius: 20px;
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem;
 }
 
 .learners-title {
   text-align: left;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
   color: #ffffff;
 }
 
@@ -25,45 +25,59 @@
 .learners-subtitle {
   text-align: left;
   color: #a8b2d1;
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
 .carousel {
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .carousel-track {
   display: flex;
-  gap: 2rem;
-  transition: transform 0.5s ease;
+  gap: 1.5rem;
+  animation: scroll 20s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
 }
 
 .learner-card {
   flex: 0 0 auto;
-  width: 200px;
+  width: 150px;
   text-align: center;
 }
 
 .learner-image {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   border: 3px solid #667eea;
 }
 
 .learner-name {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .learner-company {
   color: #a8b2d1;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 768px) {

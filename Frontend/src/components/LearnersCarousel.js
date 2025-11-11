@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './LearnersCarousel.css';
 
 const learnersData = [
@@ -13,27 +13,8 @@ const learnersData = [
 ];
 
 const LearnersCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 5;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex + 1 >= learnersData.length ? 0 : prevIndex + 1
-      );
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const getVisibleLearners = () => {
-    const visible = [];
-    for (let i = 0; i < itemsPerView; i++) {
-      const index = (currentIndex + i) % learnersData.length;
-      visible.push(learnersData[index]);
-    }
-    return visible;
-  };
+  // Duplicate the array for infinite scroll effect
+  const duplicatedLearners = [...learnersData, ...learnersData, ...learnersData];
 
   return (
     <section className="learners-section">
@@ -45,7 +26,7 @@ const LearnersCarousel = () => {
         
         <div className="carousel">
           <div className="carousel-track">
-            {getVisibleLearners().map((learner, index) => (
+            {duplicatedLearners.map((learner, index) => (
               <div key={index} className="learner-card">
                 <img src={learner.image} alt={learner.name} className="learner-image" />
                 <h3 className="learner-name">{learner.name}</h3>

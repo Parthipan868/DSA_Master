@@ -4,10 +4,14 @@ import { FaCode, FaUser } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo" onClick={scrollToTop}>
           <div className="logo-icon">
             <FaCode />
           </div>
@@ -15,7 +19,7 @@ const Navbar = () => {
         
         <ul className="nav-menu">
           <li className="nav-item">
-            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/" className="nav-link" onClick={scrollToTop}>Home</Link>
           </li>
           <li className="nav-item">
             <Link to="/problems" className="nav-link">Problems</Link>

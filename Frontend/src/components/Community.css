@@ -28,16 +28,29 @@
   margin-bottom: 2rem;
 }
 
+.social-card-wrapper {
+  background: linear-gradient(135deg, #a8b2d1 0%, #8a96b8 100%);
+  padding: 10px;
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-card-wrapper:hover {
+  transform: translateY(-10px);
+}
+
 .social-card {
-  background-color: #2d3548;
+  background-color: #3a4359;
   padding: 3rem 2rem;
-  border-radius: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #3a4359;
+  border-radius: 18px;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .social-card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -49,18 +62,38 @@
 .social-count {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #ff7849;
   margin-bottom: 0.5rem;
 }
 
 .social-platform {
   color: #a8b2d1;
   font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.follow-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.follow-link:hover {
+  color: #ff7849;
+}
+
+.follow-link .arrow {
+  font-size: 1.1rem;
 }
 
 .community-description {
   color: #a8b2d1;
-  font-size: 1.1rem;
+  font-size: 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
