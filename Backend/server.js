@@ -22,10 +22,9 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to DSA Master API' });
 });
 
-// Import routes (to be added later)
-// app.use('/api/users', require('./routes/users'));
-// app.use('/api/problems', require('./routes/problems'));
-// app.use('/api/auth', require('./routes/auth'));
+// API Routes
+app.use('/api/problems', require('./routes/problems'));
+app.use('/api/discussions', require('./routes/discussions'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {

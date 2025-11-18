@@ -6,44 +6,54 @@ const ProblemSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  description: {
-    type: String,
-    required: true
-  },
   difficulty: {
     type: String,
-    enum: ['Easy', 'Medium', 'Hard'],
+    enum: ['easy', 'medium', 'hard'],
     required: true
   },
-  category: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  tags: [{
+  topics: [{
     type: String,
     trim: true
   }],
+  pattern: {
+    type: String,
+    trim: true
+  },
   companies: [{
     type: String,
     trim: true
   }],
-  examples: [{
-    input: String,
-    output: String,
-    explanation: String
-  }],
-  constraints: [String],
-  solution: {
-    approach: String,
-    code: String,
-    timeComplexity: String,
-    spaceComplexity: String
+  leetcodeUrl: {
+    type: String,
+    required: true
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
+  videoUrl: {
+    type: String,
+    default: null
+  },
+  notesUrl: {
+    type: String,
+    default: null
+  },
+  points: {
+    type: Number,
+    default: 10
+  },
+  hasDiscussion: {
+    type: Boolean,
+    default: true
+  },
+  order: {
+    type: Number,
+    default: 0
   }
+}, {
+  timestamps: true
 });
+
+// Index for faster searches
+ProblemSchema.index({ title: 'text' });
+ProblemSchema.index({ difficulty: 1 });
+ProblemSchema.index({ topics: 1 });
 
 module.exports = mongoose.model('Problem', ProblemSchema);
