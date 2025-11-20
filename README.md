@@ -160,5 +160,3 @@ See `Database/README.md` for detailed MongoDB setup instructions.
 Parthipan
 
 ---
-
-**Happy Coding! 🚀**
