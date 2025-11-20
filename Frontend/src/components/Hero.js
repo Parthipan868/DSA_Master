@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleStartLearning = () => {
+    navigate('/learn?path=beginner');
+  };
+
   return (
     <section className="hero">
       <div className="hero-container">
@@ -17,7 +24,7 @@ const Hero = () => {
           Master DSA with curated resources and expert guidance – Learn the skills that set you apart and join the Top 1% of coding achievers!
         </p>
 
-        <button className="hero-cta">Start Your DSA Journey</button>
+        <button className="hero-cta" onClick={handleStartLearning}>Start Your DSA Journey</button>
       </div>
     </section>
   );
