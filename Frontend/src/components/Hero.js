@@ -6,7 +6,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleStartLearning = () => {
-    navigate('/learn?path=beginner');
+    navigate('/problems');
   };
 
   return (
@@ -15,7 +15,7 @@ const Hero = () => {
         <h1 className="hero-title">
           Advance Your Career with <span className="highlight">DSA Problems</span>
         </h1>
-        
+
         <div className="hero-subtitle">
           Join the <span className="top-badge">Top 1%</span> Today
         </div>

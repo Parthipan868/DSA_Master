@@ -58,11 +58,18 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #ff7849;
+  background-color: #ffffff;
+  color: #1e293b;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1.5rem;
+  margin: -0.5rem -0.5rem;
 }
 
 .navbar-user {
@@ -73,11 +80,14 @@
   padding: 0.5rem 1.2rem;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .navbar-user:hover {
-  background-color: rgba(102, 126, 234, 0.3);
+  background-color: rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .user-icon {
@@ -95,15 +105,15 @@
   .navbar {
     padding: 1rem;
   }
-  
+
   .nav-menu {
     gap: 1.5rem;
   }
-  
+
   .nav-link {
     font-size: 0.9rem;
   }
-  
+
   .navbar-user span {
     display: none;
   }
