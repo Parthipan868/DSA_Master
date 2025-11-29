@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import LearnersCarousel from '../components/LearnersCarousel';
+import StudyTips from '../components/StudyTips';
 import FAQ from '../components/FAQ';
 import Community from '../components/Community';
 import Footer from '../components/Footer';
@@ -11,6 +12,7 @@ const Home = () => {
     <div className="home">
       <Hero />
       <LearnersCarousel />
+      <StudyTips />
       <FAQ />
       <Community />
       <Footer />

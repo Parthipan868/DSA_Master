@@ -5,11 +5,11 @@ import './Companies.css';
 const Companies = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
-  
+
   const handleCompanyClick = (companyName) => {
     navigate(`/company/${companyName.toLowerCase()}`);
   };
-  
+
   // Sample data for companies - matching the image
   const companies = [
     {
@@ -97,7 +97,7 @@ const Companies = () => {
       solved: 0,
     },
   ];
-  
+
   const filteredCompanies = companies.filter(company =>
     company.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -108,11 +108,11 @@ const Companies = () => {
         <h1>Company Questions</h1>
         <span className="subtitle">Practice problems asked by top tech companies</span>
       </div>
-      
+
       <div className="search-bar">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M21 21L16.65 16.65" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M21 21L16.65 16.65" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <input
           type="text"
@@ -125,20 +125,19 @@ const Companies = () => {
       <div className="companies-grid">
         {filteredCompanies.map((company) => {
           const progress = Math.round((company.solved / company.problems) * 100);
-          
+
           return (
-            <div 
-          key={company.id} 
-          className="company-card"
-          onClick={() => handleCompanyClick(company.name)}
-          style={{ cursor: 'pointer' }}
-        >
+            <div
+              key={company.id}
+              className="company-card"
+              onClick={() => handleCompanyClick(company.name)}
+            >
               <div className="company-header">
                 <div className="company-logo-container">
-                  <img 
-                    src={company.logo} 
-                    alt={`${company.name} logo`} 
-                    className="company-logo" 
+                  <img
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    className="company-logo"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = 'https://via.placeholder.com/50';
@@ -147,17 +146,21 @@ const Companies = () => {
                 </div>
                 <div className="company-info">
                   <h3 className="company-name">{company.name}</h3>
-                  <p className="problems-count">{company.problems} problems</p>
+                  <div className="problems-count-container">
+                    <span className="problems-count-number">{company.problems}</span>
+                    <span className="problems-count-label">problems</span>
+                  </div>
                 </div>
               </div>
+
               <div className="progress-section">
                 <div className="progress-info">
                   <span>Progress</span>
-                  <span className="progress-percentage">{Math.round((company.solved / company.problems) * 100)}%</span>
+                  <span className="progress-percentage">{progress}%</span>
                 </div>
                 <div className="progress-bar">
-                  <div 
-                    className={`progress-fill ${progress > 0 ? 'has-progress' : ''}`} 
+                  <div
+                    className={`progress-fill ${progress > 0 ? 'has-progress' : ''}`}
                     style={{ width: `${progress}%` }}
                   ></div>
                 </div>

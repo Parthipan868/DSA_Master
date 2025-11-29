@@ -38,7 +38,7 @@
 .carousel-track {
   display: flex;
   gap: 1.5rem;
-  animation: scroll 15s linear infinite;
+  animation: scroll 10s linear infinite;
 }
 
 .carousel-track:hover {
@@ -49,6 +49,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-33.33%);
   }
@@ -94,15 +95,15 @@
   .learners-title {
     font-size: 1.8rem;
   }
-  
+
   .carousel-track {
     gap: 1rem;
   }
-  
+
   .learner-card {
     width: 150px;
   }
-  
+
   .learner-image {
     width: 100px;
     height: 100px;

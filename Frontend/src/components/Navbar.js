@@ -16,26 +16,26 @@ const Navbar = () => {
             <FaCode />
           </div>
         </Link>
-        
+
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/" className="nav-link" onClick={scrollToTop}>Home</Link>
           </li>
           <li className="nav-item">
-            <Link to="/problems" className="nav-link">Problems</Link>
+            <Link to="/problems" className="nav-link" onClick={scrollToTop}>Problems</Link>
           </li>
           <li className="nav-item">
-            <Link to="/learn" className="nav-link">Learn</Link>
+            <Link to="/learn" className="nav-link" onClick={scrollToTop}>Learn</Link>
           </li>
           <li className="nav-item">
-            <Link to="/companies" className="nav-link">Companies</Link>
+            <Link to="/companies" className="nav-link" onClick={scrollToTop}>Companies</Link>
           </li>
         </ul>
 
-        <div className="navbar-user">
+        <Link to="/profile" className="navbar-user" onClick={scrollToTop}>
           <FaUser className="user-icon" />
           <span>PARTHIPAN</span>
-        </div>
+        </Link>
       </div>
     </nav>
   );
