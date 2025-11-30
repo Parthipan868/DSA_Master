@@ -1,0 +1,40 @@
+frontend:
+  replicaCount: 1
+  image:
+    repository: your-dockerhub-username/dsa-master-frontend
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  service:
+    type: LoadBalancer
+    port: 80
+    targetPort: 80
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+backend:
+  replicaCount: 1
+  image:
+    repository: your-dockerhub-username/dsa-master-backend
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  service:
+    type: ClusterIP
+    port: 5000
+    targetPort: 5000
+  env:
+    # In a real scenario, use Secrets for sensitive data
+    mongoUri: "mongodb+srv://placeholder:placeholder@cluster.mongodb.net/dsa-master"
+    jwtSecret: "change_this_secret"
+    nodeEnv: "production"
+  resources: 
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
