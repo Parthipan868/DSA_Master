@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     FaUser,
@@ -12,16 +12,17 @@ import {
     FaCode
 } from 'react-icons/fa';
 import Footer from '../components/Footer';
+import { authAPI } from '../services/api';
+import { problems as problemsData } from './ProblemsData';
 import './Profile.css';
 
 const Profile = () => {
     const navigate = useNavigate();
-
-    // Mock Data - In real app, this would come from API/Context
-    const user = {
-        name: "PARTHIPAN MUTHUSWAMY 23CSR156",
-        email: "parthipanmuthuswamy.23cse@kongu.edu",
-        points: 25,
+    const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState({
+        name: "",
+        email: "",
+        points: 0,
         streak: 0,
         solved: {
             easy: 0,
@@ -30,29 +31,100 @@ const Profile = () => {
             total: 0
         },
         totalProblems: {
-            easy: 39,
-            medium: 43,
-            hard: 5
+            easy: 0,
+            medium: 0,
+            hard: 0
         }
-    };
+    });
+
+    // Generate activity grid for all 12 months
+    // 5 columns x 7 rows = 35 cells (enough for 31 days)
+    const [activityData, setActivityData] = useState(
+        Array(12).fill(null).map(() => Array(35).fill(0))
+    );
+
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            if (!authAPI.isAuthenticated()) {
+                navigate('/login');
+                return;
+            }
+
+            try {
+                const currentUser = await authAPI.getCurrentUser();
+
+                // Calculate total problems by difficulty
+                const totalCounts = {
+                    easy: problemsData.filter(p => p.difficulty === 'Easy').length,
+                    medium: problemsData.filter(p => p.difficulty === 'Medium').length,
+                    hard: problemsData.filter(p => p.difficulty === 'Hard').length
+                };
+
+                // Calculate solved problems
+                let solvedCounts = { easy: 0, medium: 0, hard: 0, total: 0 };
+                let points = 0;
+                const newActivityData = Array(12).fill(null).map(() => Array(35).fill(0));
+
+                if (currentUser.problemStatuses) {
+                    const solvedStatus = currentUser.problemStatuses.filter(s => s.status === 'solved');
+                    const solvedIds = solvedStatus.map(s => s.problemId.toString());
+
+                    const solvedProblems = problemsData.filter(p => solvedIds.includes(p.id.toString()));
+
+                    solvedCounts = {
+                        easy: solvedProblems.filter(p => p.difficulty === 'Easy').length,
+                        medium: solvedProblems.filter(p => p.difficulty === 'Medium').length,
+                        hard: solvedProblems.filter(p => p.difficulty === 'Hard').length,
+                        total: solvedProblems.length
+                    };
+
+                    // Calculate points
+                    points = solvedProblems.reduce((sum, p) => sum + (p.points || 10), 0);
+
+                    // Populate Activity Data
+                    solvedStatus.forEach(status => {
+                        if (status.updatedAt) {
+                            const date = new Date(status.updatedAt);
+                            const month = date.getMonth(); // 0-11
+                            const day = date.getDate() - 1; // 0-30
+
+                            // Map day to grid position
+                            // We use a simple mapping where day index corresponds to the cell index
+                            if (month >= 0 && month < 12 && day >= 0 && day < 35) {
+                                newActivityData[month][day] += 1;
+                            }
+                        }
+                    });
+                }
+
+                setUser({
+                    name: currentUser.name,
+                    email: currentUser.email,
+                    points: points,
+                    streak: 0,
+                    solved: solvedCounts,
+                    totalProblems: totalCounts
+                });
+                setActivityData(newActivityData);
+
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProfileData();
+    }, [navigate]);
 
     // Handle logout
     const handleLogout = () => {
-        // TODO: Clear authentication state, tokens, etc.
-        // For now, just redirect to signup page
-        navigate('/signup');
+        authAPI.logout();
+        navigate('/login');
     };
 
     // Generate months including December
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-    // Generate activity grid for all 12 months
-    const activityData = Array(12).fill(null).map(() =>
-        Array(7).fill(null).map(() => Array(Math.ceil(30 / 7)).fill(0)).flat().slice(0, Math.ceil(30 / 7) * 4)
-    );
-
-    // Currently no activity since solved = 0
-    // When user solves problems, this data will be populated
 
     const calculatePercentage = (solved, total) => {
         if (total === 0) return 0;
@@ -64,10 +136,14 @@ const Profile = () => {
     const hardPercent = calculatePercentage(user.solved.hard, user.totalProblems.hard);
 
     // Calculate pie chart percentages
-    const totalSolved = user.solved.easy + user.solved.medium + user.solved.hard;
+    const totalSolved = user.solved.total;
     const easySlice = totalSolved > 0 ? (user.solved.easy / totalSolved) * 100 : 0;
     const mediumSlice = totalSolved > 0 ? (user.solved.medium / totalSolved) * 100 : 0;
     const hardSlice = totalSolved > 0 ? (user.solved.hard / totalSolved) * 100 : 0;
+
+    if (loading) {
+        return <div className="profile-page"><div className="profile-container">Loading...</div></div>;
+    }
 
     return (
         <div className="profile-page">
@@ -114,14 +190,20 @@ const Profile = () => {
                                     <div key={monthIndex} className="month-grid">
                                         {Array(7).fill(null).map((_, row) => (
                                             <div key={row} className="week-row">
-                                                {Array(4).fill(null).map((_, col) => {
+                                                {Array(5).fill(null).map((_, col) => {
                                                     const dayIndex = row + col * 7;
-                                                    const level = activityData[monthIndex]?.[dayIndex] || 0;
+                                                    const count = activityData[monthIndex]?.[dayIndex] || 0;
+                                                    let level = 0;
+                                                    if (count > 0) level = 1;
+                                                    if (count > 2) level = 2;
+                                                    if (count > 4) level = 3;
+                                                    if (count > 6) level = 4;
+
                                                     return (
                                                         <div
                                                             key={col}
                                                             className={`activity-cell level-${level}`}
-                                                            title={`${month} - ${level} problems`}
+                                                            title={`${month} ${dayIndex + 1}: ${count} problems`}
                                                         />
                                                     );
                                                 })}

@@ -143,4 +143,51 @@ router.get('/me', async (req, res) => {
     }
 });
 
+// @route   PUT /api/auth/problem-status
+// @desc    Update problem status
+// @access  Private
+router.put('/problem-status', async (req, res) => {
+    try {
+        const token = req.header('Authorization')?.replace('Bearer ', '');
+        if (!token) return res.status(401).json({ message: 'No token, authorization denied' });
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
+        const { problemId, status } = req.body;
+
+        if (!problemId || !status) {
+            return res.status(400).json({ message: 'Problem ID and status are required' });
+        }
+
+        const user = await User.findById(decoded.userId);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        // Find if problem status already exists
+        const problemIndex = user.problemStatuses.findIndex(p => p.problemId === problemId);
+
+        if (problemIndex > -1) {
+            // Update existing status
+            user.problemStatuses[problemIndex].status = status;
+            user.problemStatuses[problemIndex].updatedAt = Date.now();
+        } else {
+            // Add new status
+            user.problemStatuses.push({ problemId, status });
+        }
+
+        // Update total solved count
+        user.problemsSolved = user.problemStatuses.filter(p => p.status === 'solved').length;
+
+        await user.save();
+
+        res.json({
+            message: 'Status updated',
+            problemStatuses: user.problemStatuses,
+            problemsSolved: user.problemsSolved
+        });
+
+    } catch (error) {
+        console.error('Update status error:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 module.exports = router;

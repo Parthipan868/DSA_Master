@@ -288,3 +288,9 @@
         font-size: 1.05rem;
     }
 }
+
+/* Hide default password reveal button in Edge/IE */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}

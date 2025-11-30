@@ -1,9 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaCode, FaUser } from 'react-icons/fa';
+import { authAPI } from '../services/api';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const storedUser = authAPI.getStoredUser();
+    setUser(storedUser);
+  }, [location]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -32,10 +41,17 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <Link to="/profile" className="navbar-user" onClick={scrollToTop}>
-          <FaUser className="user-icon" />
-          <span>PARTHIPAN</span>
-        </Link>
+        {user ? (
+          <Link to="/profile" className="navbar-user" onClick={scrollToTop}>
+            <FaUser className="user-icon" />
+            <span>{user.name.toUpperCase()}</span>
+          </Link>
+        ) : (
+          <Link to="/login" className="navbar-user" onClick={scrollToTop}>
+            <FaUser className="user-icon" />
+            <span>LOGIN</span>
+          </Link>
+        )}
       </div>
     </nav>
   );

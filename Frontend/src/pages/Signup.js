@@ -50,8 +50,9 @@ const Signup = () => {
                 password: formData.password
             });
             console.log('Signup successful:', response);
-            // Redirect to home page or login
-            navigate('/');
+            // Logout to force user to login manually
+            authAPI.logout();
+            navigate('/login');
         } catch (err) {
             console.error('Signup error:', err);
             setError(err.response?.data?.message || 'Signup failed. Please try again.');

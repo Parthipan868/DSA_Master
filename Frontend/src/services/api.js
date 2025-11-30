@@ -65,6 +65,18 @@ export const authAPI = {
     getStoredUser: () => {
         const user = localStorage.getItem('user');
         return user ? JSON.parse(user) : null;
+    },
+
+    // Update problem status
+    updateProblemStatus: async (problemId, status) => {
+        const response = await API.put('/auth/problem-status', { problemId, status });
+        // Update stored user data with new problemsSolved count
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            user.problemsSolved = response.data.problemsSolved;
+            localStorage.setItem('user', JSON.stringify(user));
+        }
+        return response.data;
     }
 };
 

@@ -26,6 +26,21 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  problemStatuses: [{
+    problemId: {
+      type: String,
+      required: true
+    },
+    status: {
+      type: String,
+      enum: ['solved', 'attempted', 'unsolved'],
+      default: 'unsolved'
+    },
+    updatedAt: {
+      type: Date,
+      default: Date.now
+    }
+  }],
   createdAt: {
     type: Date,
     default: Date.now

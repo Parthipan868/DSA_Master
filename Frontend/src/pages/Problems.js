@@ -15,6 +15,7 @@ import {
   FaChevronDown
 } from 'react-icons/fa';
 import { problems as problemsData } from './ProblemsData';
+import { authAPI } from '../services/api';
 import './Problems.css';
 
 const statusText = {
@@ -48,8 +49,26 @@ const Problems = () => {
   // Extract unique topics for filter dropdown
   const allTopics = [...new Set(problemsData.flatMap(p => p.topics))].sort();
 
-  // Close dropdowns when clicking outside
+  // Fetch user progress on mount
   useEffect(() => {
+    const fetchUserProgress = async () => {
+      if (authAPI.isAuthenticated()) {
+        try {
+          const user = await authAPI.getCurrentUser();
+          if (user && user.problemStatuses) {
+            setProblems(prevProblems => prevProblems.map(p => {
+              const statusObj = user.problemStatuses.find(s => s.problemId === p.id.toString());
+              return statusObj ? { ...p, status: statusObj.status } : p;
+            }));
+          }
+        } catch (error) {
+          console.error('Error fetching user progress:', error);
+        }
+      }
+    };
+
+    fetchUserProgress();
+
     const handleClickOutside = () => setOpenStatusDropdown(null);
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
@@ -112,13 +131,23 @@ const Problems = () => {
     }
   };
 
-  const updateProblemStatus = (problemId, newStatus) => {
+  const updateProblemStatus = async (problemId, newStatus) => {
+    // Optimistic update
     setProblems(prevProblems =>
       prevProblems.map(p =>
         p.id === problemId ? { ...p, status: newStatus } : p
       )
     );
     setOpenStatusDropdown(null); // Close dropdown after selection
+
+    // Update in database if logged in
+    if (authAPI.isAuthenticated()) {
+      try {
+        await authAPI.updateProblemStatus(problemId.toString(), newStatus);
+      } catch (error) {
+        console.error('Error updating status:', error);
+      }
+    }
   };
 
   const toggleStatusDropdown = (e, problemId) => {

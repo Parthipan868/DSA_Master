@@ -1,121 +1,13 @@
 import React, { useState } from 'react';
-import { FaBookOpen, FaVideo, FaFileAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaBookOpen, FaVideo, FaFileAlt, FaChevronDown, FaChevronUp, FaExternalLinkAlt } from 'react-icons/fa';
 import Footer from '../components/Footer';
+import { dsaTopics } from '../data/LearnTopics';
+import ReactMarkdown from 'react-markdown';
 import './Learn.css';
 
 const Learn = () => {
   const [expandedTopic, setExpandedTopic] = useState(null);
   const [selectedResource, setSelectedResource] = useState({});
-
-  // Common topics for all paths
-  const commonTopics = [
-    {
-      id: 'arrays',
-      title: 'Arrays',
-      videoUrl: 'https://www.youtube.com/embed/37E9ckMDdTk',
-      notesUrl: '',
-      subtopics: [
-        'Introduction',
-        'Largest Element',
-        'Second Largest',
-        'Check if Sorted',
-        'Remove Duplicated'
-      ]
-    },
-    {
-      id: 'strings',
-      title: 'Strings',
-      videoUrl: 'https://www.youtube.com/embed/Dt6gzsNrghQ',
-      notesUrl: '',
-      subtopics: [
-        'String Basics',
-        'Palindrome Check',
-        'Reverse String',
-        'Anagram',
-        'Pattern Matching'
-      ]
-    },
-    {
-      id: 'trees',
-      title: 'Trees',
-      videoUrl: 'https://www.youtube.com/embed/YAdLFsTG70w',
-      notesUrl: '',
-      subtopics: [
-        'Binary Tree Basics',
-        'Tree Traversals',
-        'Binary Search Tree',
-        'Tree Properties',
-        'Basic Tree Problems'
-      ]
-    },
-    {
-      id: 'heaps',
-      title: 'Heaps',
-      videoUrl: 'https://www.youtube.com/embed/NEtwJASLU8Q',
-      notesUrl: '',
-      subtopics: [
-        'Heap Basics',
-        'Heap Operations',
-        'Heap Sort',
-        'Priority Queues',
-        'Heap Applications'
-      ]
-    },
-    {
-      id: 'hashing',
-      title: 'Hashing',
-      videoUrl: 'https://www.youtube.com/embed/KEs5UyBJ39g',
-      notesUrl: '',
-      subtopics: [
-        'Hash Functions',
-        'Hash Tables',
-        'Collision Handling',
-        'Hashing Applications',
-        'Performance Analysis'
-      ]
-    },
-    {
-      id: 'sorting',
-      title: 'Sorting',
-      videoUrl: 'https://www.youtube.com/embed/HGk_ypEuS24',
-      notesUrl: '',
-      subtopics: [
-        'Bubble Sort',
-        'Selection Sort',
-        'Insertion Sort',
-        'Merge Sort',
-        'Quick Sort',
-        'Heap Sort',
-        'Comparison of Sorts'
-      ]
-    },
-    {
-      id: 'backtracking',
-      title: 'Backtracking',
-      videoUrl: 'https://www.youtube.com/embed/L0NxT2i-LOY',
-      notesUrl: '',
-      subtopics: [
-        'Introduction',
-        'N-Queens Problem',
-        'Sudoku Solver',
-        'Subset Generation',
-        'Permutations'
-      ]
-    },
-    {
-      id: 'greedy',
-      title: 'Greedy Algorithms',
-      videoUrl: 'https://www.youtube.com/embed/DIX2p7vb9co',
-      notesUrl: '',
-      subtopics: [
-        'Greedy Approach',
-        'Activity Selection',
-        'Huffman Coding',
-        'Dijkstra\'s Algorithm',
-        'Minimum Spanning Tree'
-      ]
-    }
-  ];
 
 
   const toggleTopic = (topicId) => {
@@ -143,7 +35,7 @@ const Learn = () => {
       <div className="learn-container">
         <div className="topics-container">
           <div className="topics-list">
-            {commonTopics.map((topic) => (
+            {dsaTopics.map((topic) => (
               <div key={topic.id} className="topic-accordion">
                 <div
                   className="topic-accordion-header"
@@ -205,12 +97,37 @@ const Learn = () => {
 
                       {selectedResource[topic.id] === 'notes' && (
                         <div className="notes-content">
-                          {topic.notesUrl ? (
-                            <iframe
-                              src={topic.notesUrl}
-                              title={`${topic.title} Notes`}
-                              className="notes-iframe"
-                            />
+                          {topic.notes ? (
+                            <div className="notes-container">
+                              {/* Introduction/Summary */}
+                              <div className="notes-introduction">
+                                <ReactMarkdown>{topic.notes.introduction}</ReactMarkdown>
+                              </div>
+
+                              {/* Articles Section */}
+                              {topic.notes.articles && topic.notes.articles.length > 0 && (
+                                <div className="articles-section">
+                                  <h3 className="articles-heading">📚 Recommended Articles & Resources</h3>
+                                  <div className="articles-grid">
+                                    {topic.notes.articles.map((article, index) => (
+                                      <a
+                                        key={index}
+                                        href={article.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="article-card"
+                                      >
+                                        <div className="article-header">
+                                          <h4>{article.title}</h4>
+                                          <FaExternalLinkAlt className="external-icon" />
+                                        </div>
+                                        <p className="article-description">{article.description}</p>
+                                      </a>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           ) : (
                             <div className="placeholder-content">
                               <h3>Notes & Articles Coming Soon</h3>
