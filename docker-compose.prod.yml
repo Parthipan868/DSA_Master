@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: ${DOCKER_USER}/dsa-master-frontend:latest
+    ports:
+      - "80:80"
+    restart: always
+
+  backend:
+    image: ${DOCKER_USER}/dsa-master-backend:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - NODE_ENV=production
+    restart: always

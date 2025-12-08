@@ -1,71 +1,58 @@
-# DevOps Implementation Guide
+# DevOps Implementation Guide (EC2 Edition)
 
-This project has been equipped with a full DevOps stack including Docker, Kubernetes (EKS), Terraform, Helm, and Jenkins.
+This project uses a streamlined DevOps stack: Docker, AWS EC2, Terraform, and Jenkins.
 
-## 1. Docker
+## 1. Infrastructure (Terraform)
 
-Dockerfiles have been created for both Frontend and Backend.
-
-- **Frontend**: Multi-stage build (Node.js build -> Nginx serve).
-- **Backend**: Node.js runtime.
-
-### Build and Run Locally
-```bash
-# Frontend
-cd Frontend
-docker build -t dsa-frontend .
-docker run -p 80:80 dsa-frontend
-
-# Backend
-cd Backend
-docker build -t dsa-backend .
-docker run -p 5000:5000 dsa-backend
-```
-
-## 2. Infrastructure as Code (Terraform)
-
-Terraform is used to provision an AWS EKS cluster.
+We use Terraform to provision a free-tier eligible EC2 instance (`t2.micro`) with Docker installed.
 
 **Location**: `infrastructure/terraform/`
 
-### Prerequisites
-- AWS CLI configured
-- Terraform installed
+### Setup
+1.  **Create Key Pair**: Go to AWS Console -> EC2 -> Key Pairs -> Create Key Pair. Name it `dsa-key` and download the `.pem` file.
+2.  **Run Terraform**:
+    ```bash
+    cd infrastructure/terraform
+    terraform init
+    terraform apply
+    ```
+3.  **Note the Output**: Terraform will show you the `public_ip` of your new server.
 
-### Usage
-```bash
-cd infrastructure/terraform
-terraform init
-terraform plan
-terraform apply
-```
-*Note: This will create resources on AWS which may incur costs.*
+## 2. Docker
 
-## 3. Kubernetes & Helm
+Dockerfiles are in `Frontend/` and `Backend/`.
+A `docker-compose.prod.yml` is used to orchestrate them on the server.
 
-A Helm chart is provided to deploy the application to Kubernetes.
+## 3. Jenkins CI/CD
 
-**Location**: `infrastructure/helm/dsa-master/`
-
-### Usage
-```bash
-# Install/Upgrade
-helm upgrade --install dsa-master ./infrastructure/helm/dsa-master
-```
-
-## 4. Jenkins CI/CD
-
-A `Jenkinsfile` is included in the root directory.
-
-### Pipeline Stages
-1. **Checkout**: Pulls code from GitHub.
-2. **Build**: Builds Docker images for Frontend and Backend.
-3. **Push**: Pushes images to DockerHub.
-4. **Deploy**: Deploys to EKS using Helm.
+The `Jenkinsfile` automates the deployment.
 
 ### Jenkins Setup
-1. Install Jenkins.
-2. Install Docker, Kubernetes CLI, and Helm plugins.
-3. Configure Credentials:
-   - `dockerhub-credentials-id`: Username/Password for DockerHub.
-   - `kubeconfig-id`: Kubeconfig file for EKS access.
+1.  **Plugins**: Install "Docker Pipeline" and "SSH Agent" plugins.
+2.  **Credentials**:
+    -   `dockerhub-credentials-id`: Username/Password for DockerHub.
+    -   `ec2-ssh-key`: **SSH Username with private key**.
+        -   Username: `ubuntu`
+        -   Private Key: Paste the content of your `dsa-key.pem`.
+    -   `MONGODB_URI_SECRET`: Secret text for Mongo URI.
+    -   `JWT_SECRET`: Secret text for JWT secret.
+3.  **Pipeline Configuration**:
+    -   Update `DOCKER_USER` in the `Jenkinsfile`.
+    -   Update `EC2_HOST` in the `Jenkinsfile` with the IP from Terraform output (e.g., `ubuntu@1.2.3.4`).
+
+## 4. Manual Deployment (Optional)
+
+If you want to deploy manually without Jenkins:
+
+1.  SSH into the server:
+    ```bash
+    ssh -i dsa-key.pem ubuntu@<PUBLIC_IP>
+    ```
+2.  Copy `docker-compose.prod.yml` to the server.
+3.  Run:
+    ```bash
+    export DOCKER_USER=your-username
+    export MONGODB_URI=...
+    export JWT_SECRET=...
+    docker-compose -f docker-compose.prod.yml up -d
+    ```
