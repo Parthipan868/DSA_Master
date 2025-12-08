@@ -268,7 +268,7 @@ const Problems = () => {
               <div className="card-main-actions">
                 <button
                   className="solve-btn-large"
-                  onClick={() => handleSolveProblem(problem.leetcodeUrl)}
+                  onClick={() => handleSolveProblem(problem.leetcodeUrl || problem.platformUrl)}
                 >
                   <FaExternalLinkAlt /> Solve
                 </button>
@@ -365,7 +365,7 @@ const Problems = () => {
             <button
               className="modal-solve-button"
               onClick={() => {
-                handleSolveProblem(randomProblem.leetcodeUrl);
+                handleSolveProblem(randomProblem.leetcodeUrl || randomProblem.platformUrl);
                 setShowRandomModal(false);
               }}
             >
@@ -397,7 +397,7 @@ const Problems = () => {
             <button
               className="modal-solve-button"
               onClick={() => {
-                handleSolveProblem(dailyProblem.leetcodeUrl);
+                handleSolveProblem(dailyProblem.leetcodeUrl || dailyProblem.platformUrl);
                 setShowDailyModal(false);
               }}
             >
