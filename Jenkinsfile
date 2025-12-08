@@ -3,10 +3,12 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
-        KUBECONFIG = credentials('kubeconfig-id')
         // Replace with your actual DockerHub username
         DOCKER_USER = 'your-dockerhub-username' 
         APP_NAME = 'dsa-master'
+        // SSH Credentials for EC2
+        EC2_HOST = 'ubuntu@<YOUR_EC2_PUBLIC_IP>'
+        SSH_KEY_ID = 'ec2-ssh-key' 
     }
 
     stages {
@@ -43,17 +45,18 @@ pipeline {
             }
         }
 
-        stage('Deploy to EKS') {
+        stage('Deploy to EC2') {
             steps {
-                script {
-                    // Assuming kubectl and helm are installed on Jenkins agent
-                    // and KUBECONFIG is set up correctly
+                sshagent(['ec2-ssh-key']) {
                     sh '''
-                        helm upgrade --install dsa-master ./infrastructure/helm/dsa-master \
-                        --set frontend.image.repository=$DOCKER_USER/$APP_NAME-frontend \
-                        --set backend.image.repository=$DOCKER_USER/$APP_NAME-backend \
-                        --set backend.env.mongoUri=$MONGODB_URI_SECRET \
-                        --set backend.env.jwtSecret=$JWT_SECRET
+                        scp -o StrictHostKeyChecking=no docker-compose.prod.yml $EC2_HOST:/home/ubuntu/docker-compose.yml
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "
+                            export DOCKER_USER=$DOCKER_USER
+                            export MONGODB_URI=$MONGODB_URI_SECRET
+                            export JWT_SECRET=$JWT_SECRET
+                            docker-compose pull
+                            docker-compose up -d
+                        "
                     '''
                 }
             }

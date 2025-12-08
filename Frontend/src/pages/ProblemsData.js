@@ -14,6 +14,20 @@ const problems = [
   },
   {
     id: 2,
+    title: "Find the Missing Number",
+    difficulty: "Easy",
+    topics: ["Array", "Math", "Bit Manipulation"],
+    companies: ["Microsoft", "Amazon", "Walmart"],
+    status: "Solved",
+    points: 10,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/missing-number_6680467",
+    videoUrl: "https://www.youtube.com/watch?v=bYWLJb3vCWY",
+    notesUrl: "https://takeuforward.org/arrays/find-the-missing-number-in-an-array/",
+    hasDiscussion: true
+  },
+  {
+    id: 3,
     title: "Add Two Numbers",
     difficulty: "Medium",
     topics: ["Linked List", "Math", "Recursion"],
@@ -26,7 +40,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 3,
+    id: 4,
+    title: "Chocolate Distribution Problem",
+    difficulty: "Easy",
+    topics: ["Array", "Sorting", "Greedy"],
+    companies: ["Amazon", "Adobe", "Flipkart"],
+    status: "Unsolved",
+    points: 10,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1",
+    videoUrl: "https://www.youtube.com/watch?v=7jdcn5fNVJU",
+    notesUrl: "https://www.geeksforgeeks.org/chocolate-distribution-problem/",
+    hasDiscussion: true
+  },
+  {
+    id: 5,
     title: "Longest Substring Without Repeating Characters",
     difficulty: "Medium",
     topics: ["Hash Table", "Two Pointers", "String", "Sliding Window"],
@@ -39,7 +67,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 4,
+    id: 6,
+    title: "Sort 0s 1s and 2s",
+    difficulty: "Easy",
+    topics: ["Array", "Two Pointers", "Sorting"],
+    companies: ["Microsoft", "Amazon", "Samsung"],
+    status: "Solved",
+    points: 10,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1",
+    videoUrl: "https://www.youtube.com/watch?v=oaVa-9wmpns",
+    notesUrl: "https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s/",
+    hasDiscussion: true
+  },
+  {
+    id: 7,
     title: "Median of Two Sorted Arrays",
     difficulty: "Hard",
     topics: ["Array", "Binary Search", "Divide and Conquer"],
@@ -52,7 +94,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 5,
+    id: 8,
+    title: "Count Inversions",
+    difficulty: "Medium",
+    topics: ["Array", "Merge Sort", "Divide and Conquer"],
+    companies: ["Amazon", "Microsoft", "Google"],
+    status: "Unsolved",
+    points: 20,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1",
+    videoUrl: "https://www.youtube.com/watch?v=kQ1mJlwW-c0",
+    notesUrl: "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+    hasDiscussion: true
+  },
+  {
+    id: 9,
     title: "Longest Palindromic Substring",
     difficulty: "Medium",
     topics: ["String", "Dynamic Programming"],
@@ -65,7 +121,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 6,
+    id: 10,
+    title: "Longest Consecutive Sequence",
+    difficulty: "Medium",
+    topics: ["Array", "Hash Table", "Union Find"],
+    companies: ["Google", "Facebook", "Amazon"],
+    status: "Attempted",
+    points: 20,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/longest-consecutive-sequence_6811740",
+    videoUrl: "https://www.youtube.com/watch?v=qgizvmgeyUM",
+    notesUrl: "https://takeuforward.org/data-structure/longest-consecutive-sequence-in-an-array/",
+    hasDiscussion: true
+  },
+  {
+    id: 11,
     title: "ZigZag Conversion",
     difficulty: "Medium",
     topics: ["String"],
@@ -78,7 +148,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 7,
+    id: 12,
+    title: "Kadane's Algorithm",
+    difficulty: "Medium",
+    topics: ["Array", "Dynamic Programming"],
+    companies: ["Amazon", "Microsoft", "Flipkart"],
+    status: "Solved",
+    points: 15,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1",
+    videoUrl: "https://www.youtube.com/watch?v=AHZpyENo7k4",
+    notesUrl: "https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/",
+    hasDiscussion: true
+  },
+  {
+    id: 13,
     title: "Reverse Integer",
     difficulty: "Easy",
     topics: ["Math"],
@@ -91,7 +175,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 8,
+    id: 14,
+    title: "Stock Buy and Sell",
+    difficulty: "Medium",
+    topics: ["Array", "Dynamic Programming", "Greedy"],
+    companies: ["Amazon", "Paytm", "Flipkart"],
+    status: "Attempted",
+    points: 15,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/stock-buy-and-sell-1587115621/1",
+    videoUrl: "https://www.youtube.com/watch?v=excAOvwF_Wk",
+    notesUrl: "https://takeuforward.org/data-structure/stock-buy-and-sell/",
+    hasDiscussion: true
+  },
+  {
+    id: 15,
     title: "String to Integer (atoi)",
     difficulty: "Medium",
     topics: ["String", "Math"],
@@ -104,7 +202,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 9,
+    id: 16,
+    title: "Subarray with Given Sum",
+    difficulty: "Easy",
+    topics: ["Array", "Hash Table", "Sliding Window"],
+    companies: ["Amazon", "Microsoft", "Accenture"],
+    status: "Solved",
+    points: 10,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1",
+    videoUrl: "https://www.youtube.com/watch?v=frf7qxiN2qU",
+    notesUrl: "https://www.geeksforgeeks.org/find-subarray-with-given-sum/",
+    hasDiscussion: true
+  },
+  {
+    id: 17,
     title: "Container With Most Water",
     difficulty: "Medium",
     topics: ["Array", "Two Pointers"],
@@ -117,7 +229,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 10,
+    id: 18,
+    title: "Job Sequencing Problem",
+    difficulty: "Medium",
+    topics: ["Array", "Greedy", "Sorting"],
+    companies: ["Flipkart", "Samsung", "Amazon"],
+    status: "Unsolved",
+    points: 20,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1",
+    videoUrl: "https://www.youtube.com/watch?v=LjPx4wQaRIs",
+    notesUrl: "https://takeuforward.org/data-structure/job-sequencing-problem/",
+    hasDiscussion: true
+  },
+  {
+    id: 19,
     title: "Integer to Roman",
     difficulty: "Medium",
     topics: ["Math", "String"],
@@ -130,7 +256,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 11,
+    id: 20,
+    title: "N Queen Problem",
+    difficulty: "Hard",
+    topics: ["Backtracking", "Recursion"],
+    companies: ["Google", "Amazon", "Microsoft"],
+    status: "Unsolved",
+    points: 25,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/n-queens_696453",
+    videoUrl: "https://www.youtube.com/watch?v=i05Ju7AftcM",
+    notesUrl: "https://takeuforward.org/data-structure/n-queen-problem-return-all-distinct-solutions-to-the-n-queens-puzzle/",
+    hasDiscussion: true
+  },
+  {
+    id: 21,
     title: "Roman to Integer",
     difficulty: "Easy",
     topics: ["Hash Table", "Math", "String"],
@@ -143,7 +283,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 12,
+    id: 22,
+    title: "Rat in a Maze",
+    difficulty: "Medium",
+    topics: ["Backtracking", "Matrix", "Recursion"],
+    companies: ["Microsoft", "Amazon", "Samsung"],
+    status: "Attempted",
+    points: 15,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/rat-in-a-maze-problem/1",
+    videoUrl: "https://www.youtube.com/watch?v=bLGZhJlt4y0",
+    notesUrl: "https://takeuforward.org/data-structure/rat-in-a-maze/",
+    hasDiscussion: true
+  },
+  {
+    id: 23,
     title: "Longest Common Prefix",
     difficulty: "Easy",
     topics: ["String"],
@@ -156,7 +310,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 13,
+    id: 24,
+    title: "Word Break",
+    difficulty: "Medium",
+    topics: ["String", "Dynamic Programming", "Backtracking"],
+    companies: ["Google", "Amazon", "Facebook"],
+    status: "Attempted",
+    points: 20,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/word-break_630476",
+    videoUrl: "https://www.youtube.com/watch?v=s9fokUqJ76A",
+    notesUrl: "https://takeuforward.org/data-structure/word-break-ii-dp-51/",
+    hasDiscussion: true
+  },
+  {
+    id: 25,
     title: "3Sum",
     difficulty: "Medium",
     topics: ["Array", "Two Pointers"],
@@ -169,7 +337,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 14,
+    id: 26,
+    title: "Edit Distance",
+    difficulty: "Hard",
+    topics: ["String", "Dynamic Programming"],
+    companies: ["Google", "Facebook", "Microsoft"],
+    status: "Unsolved",
+    points: 25,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/edit-distance3702/1",
+    videoUrl: "https://www.youtube.com/watch?v=fJaKO8FbDdo",
+    notesUrl: "https://takeuforward.org/data-structure/edit-distance-dp-33/",
+    hasDiscussion: true
+  },
+  {
+    id: 27,
     title: "3Sum Closest",
     difficulty: "Medium",
     topics: ["Array", "Two Pointers"],
@@ -182,7 +364,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 15,
+    id: 28,
+    title: "Longest Common Subsequence",
+    difficulty: "Medium",
+    topics: ["String", "Dynamic Programming"],
+    companies: ["Amazon", "Microsoft", "Samsung"],
+    status: "Attempted",
+    points: 15,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/longest-common-subsequence_624879",
+    videoUrl: "https://www.youtube.com/watch?v=NPZn9jBrX8U",
+    notesUrl: "https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/",
+    hasDiscussion: true
+  },
+  {
+    id: 29,
     title: "Letter Combinations of a Phone Number",
     difficulty: "Medium",
     topics: ["String", "Backtracking", "Recursion"],
@@ -195,7 +391,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 16,
+    id: 30,
+    title: "0-1 Knapsack Problem",
+    difficulty: "Medium",
+    topics: ["Dynamic Programming", "Array"],
+    companies: ["Amazon", "Microsoft", "Flipkart"],
+    status: "Attempted",
+    points: 20,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1",
+    videoUrl: "https://www.youtube.com/watch?v=GqOmJHQZivw",
+    notesUrl: "https://takeuforward.org/data-structure/0-1-knapsack-dp-19/",
+    hasDiscussion: true
+  },
+  {
+    id: 31,
     title: "4Sum",
     difficulty: "Medium",
     topics: ["Array", "Hash Table", "Two Pointers"],
@@ -208,7 +418,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 17,
+    id: 32,
+    title: "Coin Change",
+    difficulty: "Medium",
+    topics: ["Array", "Dynamic Programming"],
+    companies: ["Amazon", "Microsoft", "Google"],
+    status: "Attempted",
+    points: 15,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/coin-change_624662",
+    videoUrl: "https://www.youtube.com/watch?v=HgyouUi11zk",
+    notesUrl: "https://takeuforward.org/data-structure/coin-change-2-dp-22/",
+    hasDiscussion: true
+  },
+  {
+    id: 33,
     title: "Remove Nth Node From End of List",
     difficulty: "Medium",
     topics: ["Linked List", "Two Pointers"],
@@ -221,7 +445,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 18,
+    id: 34,
+    title: "Matrix Chain Multiplication",
+    difficulty: "Hard",
+    topics: ["Dynamic Programming"],
+    companies: ["Amazon", "Samsung", "Microsoft"],
+    status: "Unsolved",
+    points: 25,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1",
+    videoUrl: "https://www.youtube.com/watch?v=vRVfmbCFW7Y",
+    notesUrl: "https://takeuforward.org/dynamic-programming/matrix-chain-multiplication-dp-48/",
+    hasDiscussion: true
+  },
+  {
+    id: 35,
     title: "Valid Parentheses",
     difficulty: "Easy",
     topics: ["String", "Stack"],
@@ -234,7 +472,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 19,
+    id: 36,
+    title: "Implement Stack using Queue",
+    difficulty: "Easy",
+    topics: ["Stack", "Queue", "Design"],
+    companies: ["Microsoft", "Amazon", "Adobe"],
+    status: "Solved",
+    points: 10,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/stack-using-queue_795152",
+    videoUrl: "https://www.youtube.com/watch?v=jDZQKzEtbYU",
+    notesUrl: "https://takeuforward.org/data-structure/implement-stack-using-single-queue/",
+    hasDiscussion: true
+  },
+  {
+    id: 37,
     title: "Merge Two Sorted Lists",
     difficulty: "Easy",
     topics: ["Linked List", "Recursion"],
@@ -247,7 +499,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 20,
+    id: 38,
+    title: "Implement Queue using Stack",
+    difficulty: "Easy",
+    topics: ["Stack", "Queue", "Design"],
+    companies: ["Microsoft", "Amazon", "Goldman Sachs"],
+    status: "Solved",
+    points: 10,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/queue-using-two-stacks/1",
+    videoUrl: "https://www.youtube.com/watch?v=3Et9MrMc02A",
+    notesUrl: "https://takeuforward.org/data-structure/implement-queue-using-stack/",
+    hasDiscussion: true
+  },
+  {
+    id: 39,
     title: "Generate Parentheses",
     difficulty: "Medium",
     topics: ["String", "Backtracking", "Recursion"],
@@ -260,7 +526,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 21,
+    id: 40,
+    title: "Min Stack",
+    difficulty: "Easy",
+    topics: ["Stack", "Design"],
+    companies: ["Amazon", "Adobe", "Flipkart"],
+    status: "Solved",
+    points: 10,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/min-stack_3843991",
+    videoUrl: "https://www.youtube.com/watch?v=V09NfaGf2ao",
+    notesUrl: "https://takeuforward.org/data-structure/implement-min-stack-o2n-and-on-space-complexity/",
+    hasDiscussion: true
+  },
+  {
+    id: 41,
     title: "Merge k Sorted Lists",
     difficulty: "Hard",
     topics: ["Linked List", "Divide and Conquer", "Heap"],
@@ -273,7 +553,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 22,
+    id: 42,
+    title: "Next Greater Element",
+    difficulty: "Medium",
+    topics: ["Array", "Stack", "Monotonic Stack"],
+    companies: ["Amazon", "Microsoft", "Flipkart"],
+    status: "Attempted",
+    points: 15,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1",
+    videoUrl: "https://www.youtube.com/watch?v=Du881K7Jtk8",
+    notesUrl: "https://takeuforward.org/data-structure/next-greater-element-using-stack/",
+    hasDiscussion: true
+  },
+  {
+    id: 43,
     title: "Swap Nodes in Pairs",
     difficulty: "Medium",
     topics: ["Linked List", "Recursion"],
@@ -286,7 +580,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 23,
+    id: 44,
+    title: "LRU Cache",
+    difficulty: "Hard",
+    topics: ["Design", "Hash Table", "Linked List", "Doubly-Linked List"],
+    companies: ["Google", "Amazon", "Microsoft"],
+    status: "Unsolved",
+    points: 25,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/lru-cache_631770",
+    videoUrl: "https://www.youtube.com/watch?v=xDEuM5qa0zg",
+    notesUrl: "https://takeuforward.org/data-structure/implement-lru-cache/",
+    hasDiscussion: true
+  },
+  {
+    id: 45,
     title: "Reverse Nodes in k-Group",
     difficulty: "Hard",
     topics: ["Linked List", "Recursion"],
@@ -299,7 +607,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 24,
+    id: 46,
+    title: "Binary Tree Inorder Traversal",
+    difficulty: "Easy",
+    topics: ["Tree", "Binary Tree", "DFS"],
+    companies: ["Microsoft", "Amazon", "Facebook"],
+    status: "Solved",
+    points: 10,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/inorder-traversal/1",
+    videoUrl: "https://www.youtube.com/watch?v=Z_NEgBgbRVI",
+    notesUrl: "https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/",
+    hasDiscussion: true
+  },
+  {
+    id: 47,
     title: "Remove Duplicates from Sorted Array",
     difficulty: "Easy",
     topics: ["Array", "Two Pointers"],
@@ -312,7 +634,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 25,
+    id: 48,
+    title: "Level Order Traversal",
+    difficulty: "Medium",
+    topics: ["Tree", "Binary Tree", "BFS"],
+    companies: ["Amazon", "Microsoft", "Adobe"],
+    status: "Solved",
+    points: 15,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/level-order-traversal_796002",
+    videoUrl: "https://www.youtube.com/watch?v=EoAsWbO7sqg",
+    notesUrl: "https://takeuforward.org/data-structure/level-order-traversal-of-a-binary-tree/",
+    hasDiscussion: true
+  },
+  {
+    id: 49,
     title: "Remove Element",
     difficulty: "Easy",
     topics: ["Array", "Two Pointers"],
@@ -325,7 +661,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 26,
+    id: 50,
+    title: "Diameter of Binary Tree",
+    difficulty: "Easy",
+    topics: ["Tree", "Binary Tree", "DFS"],
+    companies: ["Amazon", "Microsoft", "Facebook"],
+    status: "Solved",
+    points: 10,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/diameter-of-binary-tree/1",
+    videoUrl: "https://www.youtube.com/watch?v=Rezetez59Nk",
+    notesUrl: "https://takeuforward.org/data-structure/calculate-the-diameter-of-a-binary-tree/",
+    hasDiscussion: true
+  },
+  {
+    id: 51,
     title: "Implement strStr()",
     difficulty: "Easy",
     topics: ["String", "Two Pointers"],
@@ -338,7 +688,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 27,
+    id: 52,
+    title: "Lowest Common Ancestor",
+    difficulty: "Medium",
+    topics: ["Tree", "Binary Tree", "DFS"],
+    companies: ["Amazon", "Microsoft", "Google"],
+    status: "Attempted",
+    points: 15,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/lowest-common-ancestor_628702",
+    videoUrl: "https://www.youtube.com/watch?v=_-QHfMDde90",
+    notesUrl: "https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/",
+    hasDiscussion: true
+  },
+  {
+    id: 53,
     title: "Divide Two Integers",
     difficulty: "Medium",
     topics: ["Math", "Bit Manipulation"],
@@ -351,7 +715,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 28,
+    id: 54,
+    title: "Validate Binary Search Tree",
+    difficulty: "Medium",
+    topics: ["Tree", "Binary Search Tree", "DFS"],
+    companies: ["Amazon", "Microsoft", "Bloomberg"],
+    status: "Attempted",
+    points: 15,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/check-for-bst/1",
+    videoUrl: "https://www.youtube.com/watch?v=f-sj7I5oXEI",
+    notesUrl: "https://takeuforward.org/data-structure/check-if-a-tree-is-a-binary-search-tree-or-binary-tree/",
+    hasDiscussion: true
+  },
+  {
+    id: 55,
     title: "Find the Index of the First Occurrence in a String",
     difficulty: "Easy",
     topics: ["String", "Two Pointers", "String Matching"],
@@ -364,7 +742,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 29,
+    id: 56,
+    title: "Detect Cycle in Directed Graph",
+    difficulty: "Medium",
+    topics: ["Graph", "DFS", "BFS", "Topological Sort"],
+    companies: ["Amazon", "Microsoft", "Google"],
+    status: "Attempted",
+    points: 20,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/detect-cycle-in-a-directed-graph_1062626",
+    videoUrl: "https://www.youtube.com/watch?v=9twcmtQj4DU",
+    notesUrl: "https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/",
+    hasDiscussion: true
+  },
+  {
+    id: 57,
     title: "Search Insert Position",
     difficulty: "Easy",
     topics: ["Array", "Binary Search"],
@@ -377,7 +769,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 30,
+    id: 58,
+    title: "Topological Sort",
+    difficulty: "Medium",
+    topics: ["Graph", "DFS", "BFS", "Topological Sort"],
+    companies: ["Amazon", "Microsoft", "Adobe"],
+    status: "Attempted",
+    points: 15,
+    platform: "GeeksforGeeks",
+    platformUrl: "https://www.geeksforgeeks.org/problems/topological-sort/1",
+    videoUrl: "https://www.youtube.com/watch?v=5lZ0iJMrUMk",
+    notesUrl: "https://takeuforward.org/data-structure/topological-sort-algorithm-dfs-g-21/",
+    hasDiscussion: true
+  },
+  {
+    id: 59,
     title: "Count and Say",
     difficulty: "Medium",
     topics: ["String"],
@@ -390,7 +796,21 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 31,
+    id: 60,
+    title: "Dijkstra's Shortest Path",
+    difficulty: "Medium",
+    topics: ["Graph", "Shortest Path", "Heap"],
+    companies: ["Google", "Amazon", "Microsoft"],
+    status: "Attempted",
+    points: 20,
+    platform: "CodingNinjas",
+    platformUrl: "https://www.codingninjas.com/studio/problems/dijkstra-s-shortest-path_920469",
+    videoUrl: "https://www.youtube.com/watch?v=V6H1qAeB-l4",
+    notesUrl: "https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/",
+    hasDiscussion: true
+  },
+  {
+    id: 61,
     title: "Combination Sum",
     difficulty: "Medium",
     topics: ["Array", "Backtracking"],
@@ -403,7 +823,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 32,
+    id: 62,
     title: "Combination Sum II",
     difficulty: "Medium",
     topics: ["Array", "Backtracking"],
@@ -416,7 +836,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 33,
+    id: 63,
     title: "First Missing Positive",
     difficulty: "Hard",
     topics: ["Array"],
@@ -429,7 +849,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 34,
+    id: 64,
     title: "Trapping Rain Water",
     difficulty: "Hard",
     topics: ["Array", "Two Pointers", "Dynamic Programming", "Stack"],
@@ -442,7 +862,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 35,
+    id: 65,
     title: "Multiply Strings",
     difficulty: "Medium",
     topics: ["Math", "String", "Simulation"],
@@ -455,7 +875,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 36,
+    id: 66,
     title: "Permutations",
     difficulty: "Medium",
     topics: ["Array", "Backtracking"],
@@ -468,7 +888,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 37,
+    id: 67,
     title: "Rotate Image",
     difficulty: "Medium",
     topics: ["Array", "Math", "Matrix"],
@@ -481,7 +901,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 38,
+    id: 68,
     title: "Group Anagrams",
     difficulty: "Medium",
     topics: ["Hash Table", "String", "Sorting"],
@@ -494,7 +914,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 39,
+    id: 69,
     title: "Pow(x, n)",
     difficulty: "Medium",
     topics: ["Math", "Recursion"],
@@ -507,7 +927,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 40,
+    id: 70,
     title: "Maximum Subarray",
     difficulty: "Easy",
     topics: ["Array", "Divide and Conquer", "Dynamic Programming"],
@@ -520,7 +940,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 41,
+    id: 71,
     title: "Spiral Matrix",
     difficulty: "Medium",
     topics: ["Array", "Matrix", "Simulation"],
@@ -533,7 +953,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 42,
+    id: 72,
     title: "Jump Game",
     difficulty: "Medium",
     topics: ["Array", "Greedy", "Dynamic Programming"],
@@ -546,7 +966,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 43,
+    id: 73,
     title: "Merge Intervals",
     difficulty: "Medium",
     topics: ["Array", "Sorting"],
@@ -559,7 +979,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 44,
+    id: 74,
     title: "Insert Interval",
     difficulty: "Medium",
     topics: ["Array"],
@@ -572,7 +992,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 45,
+    id: 75,
     title: "Length of Last Word",
     difficulty: "Easy",
     topics: ["String"],
@@ -585,7 +1005,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 46,
+    id: 76,
     title: "Spiral Matrix II",
     difficulty: "Medium",
     topics: ["Array", "Matrix", "Simulation"],
@@ -598,7 +1018,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 47,
+    id: 77,
     title: "Permutation Sequence",
     difficulty: "Hard",
     topics: ["Math", "Recursion"],
@@ -611,7 +1031,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 48,
+    id: 78,
     title: "Rotate List",
     difficulty: "Medium",
     topics: ["Linked List", "Two Pointers"],
@@ -624,7 +1044,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 49,
+    id: 79,
     title: "Unique Paths",
     difficulty: "Medium",
     topics: ["Math", "Dynamic Programming", "Combinatorics"],
@@ -637,7 +1057,7 @@ const problems = [
     hasDiscussion: true
   },
   {
-    id: 50,
+    id: 80,
     title: "Unique Paths II",
     difficulty: "Medium",
     topics: ["Array", "Dynamic Programming", "Matrix"],
