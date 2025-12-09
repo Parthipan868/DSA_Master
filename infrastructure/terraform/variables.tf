@@ -9,3 +9,10 @@ variable "key_name" {
   type        = string
   default     = "dsa-key"
 }
+
+variable "instance_type" {
+  description = "EC2 instance type"
+  type        = string
+  default     = "t2.micro" # Free tier eligible
+}
+
