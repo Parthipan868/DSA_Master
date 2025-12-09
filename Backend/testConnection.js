@@ -6,13 +6,13 @@ dotenv.config();
 
 const testConnection = async () => {
     console.log('🔍 Testing MongoDB Connection...\n');
-    console.log('📍 MongoDB URI:', process.env.MONGO_URI?.replace(/\/\/([^:]+):([^@]+)@/, '//$1:****@') || 'NOT SET');
+    console.log('📍 MongoDB URI:', process.env.MONGODB_URI?.replace(/\/\/([^:]+):([^@]+)@/, '//$1:****@') || 'NOT SET');
     console.log('');
 
     try {
         console.log('⏳ Connecting to MongoDB...');
 
-        const conn = await mongoose.connect(process.env.MONGO_URI);
+        const conn = await mongoose.connect(process.env.MONGODB_URI);
 
         console.log('✅ MongoDB Connected Successfully!');
         console.log(`📦 Host: ${conn.connection.host}`);
@@ -46,7 +46,7 @@ const testConnection = async () => {
         console.error(error.message);
         console.error('');
         console.error('💡 Troubleshooting Tips:');
-        console.error('1. Check if MONGO_URI is set in Backend/.env file');
+        console.error('1. Check if MONGODB_URI is set in Backend/.env file');
         console.error('2. Verify MongoDB service is running (for local MongoDB)');
         console.error('3. Check network access settings (for MongoDB Atlas)');
         console.error('4. Verify username and password are correct');
